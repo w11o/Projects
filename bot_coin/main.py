@@ -1,11 +1,11 @@
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery
 from aiogram.enums import ParseMode
 from aiogram.client.default import DefaultBotProperties
 import random
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo, WebAppData, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo, WebAppData, ReplyKeyboardMarkup, KeyboardButton, ContentType
 from aiogram import F
 from aiogram.filters import Filter
 import types
@@ -33,12 +33,6 @@ keyboard_app: ReplyKeyboardMarkup = kb_builder.as_markup(
     resize_keyboard=True,
     one_time_keyboard=True
 )
-
-
-class WebAppDataFilter(Filter):
-    async def __call__(self, message: Message, **kwargs) -> Union[bool, Dict[str, Any]]:
-        if message.web_app_data:
-            return dict(web_app_data=message.web_app_data)
 
 
 def draw_hexagram(hexagram):
@@ -138,10 +132,15 @@ async def send_echo(message: Message):
 
 
 
-@dp.message(WebAppDataFilter())
-async def handle_web_app_data(message: Message, 
-                              web_app_data: WebAppData):
-    print(web_app_data)
+@dp.message(F.content_type == ContentType.WEB_APP_DATA)
+async def handle_web_app_data(message: Message):
+    
+    print(message.web_app_data)
+    print(message.from_user.id)
+    print(message.from_user.first_name)
+    print(message.from_user.last_name)
+    print(message.from_user.username)
+    print(message.from_user.language_code)
     await message.answer("Received web app data")
 
 
@@ -160,5 +159,4 @@ async def send_echo(message: Message):
 
 if __name__ == '__main__':
     dp.run_polling(bot)
-
 
