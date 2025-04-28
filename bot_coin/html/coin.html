@@ -11,7 +11,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #e0f7fa; /* Светлый голубой фон */
+            background-color: #e0f7fa; 
             font-family: 'Arial', sans-serif;
         }
 
@@ -21,17 +21,17 @@
             border-radius: 50%;
             position: relative;
             margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Тень для монеты */
-            overflow: hidden; /* Скрываем лишнее содержимое */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
 
         .coin img {
-            width: 100%; /* Изображение занимает всю ширину */
-            height: auto; /* Высота автоматически подстраивается */
+            width: 100%; 
+            height: auto;
             position: absolute;
             top: 0;
             left: 0;
-            transition: opacity 0.5s; /* Плавный переход для смены изображений */
+            transition: opacity 0.5s;
         }
 
         .flip {
@@ -48,21 +48,21 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #00796b; /* Темно-зеленый цвет кнопки */
-            color: white; /* Цвет текста кнопки */
-            border: none; /* Убираем границу */
-            border-radius: 5px; /* Скругленные углы */
-            transition: background-color 0.3s; /* Плавный переход цвета */
+            background-color: #00796b; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            transition: background-color 0.3s; 
         }
 
         button:hover {
-            background-color: #004d40; /* Темнее при наведении */
+            background-color: #004d40; 
         }
 
         .result {
             margin-top: 20px;
-            font-size: 24px; /* Размер текста результата */
-            color: #00796b; /* Цвет текста результата */
+            font-size: 24px;
+            color: #00796b;
         }
     </style>
 </head>
@@ -72,21 +72,18 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/RR5709-0001R.jpg" alt="Решка" class="tails" style="opacity: 0;">
     </div>
     <button id="flipButton">Бросить монету</button>
-    <div class="result" id="result"></div> <!-- Элемент для отображения результата -->
+    <div class="result" id="result"></div>
 
     <script>
         document.getElementById('flipButton').addEventListener('click', function() {
             const coin = document.getElementById('coin');
             const resultDiv = document.getElementById('result');
             
-            // Удаляем класс flip, чтобы анимация могла повторяться
             coin.classList.remove('flip');
             
-            // Запускаем анимацию
-            void coin.offsetWidth; // Перезапускаем анимацию
+            void coin.offsetWidth; 
             coin.classList.add('flip');
 
-            // Определяем результат броска
             setTimeout(() => {
                 const result = Math.random() < 0.5 ? 'Орёл' : 'Решка';
                 const headsImg = coin.querySelector('.heads');
@@ -100,10 +97,9 @@
                     tailsImg.style.opacity = '1';
                 }
 
-                // Отображаем результат на странице
                 resultDiv.textContent = `Результат броска: ${result}`;
                 
-            }, 1000); // Задержка на время анимации
+            }, 1000);
         });
     </script>
 </body>
