@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #851ecf;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        h1 {
+            margin: 0;
+            text-align: center;
+        }
+        .auth-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .auth-buttons button {
+            background-color: white;
+            color: #851ecf;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .auth-buttons button:hover {
+            background-color: #ddd;
+        }
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar, .news {
+            width: 200px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            margin-right: 10px;
+        }
+        .news {
+            margin-left: 10px;
+        }
+        .sidebar h3, .news h3 {
+            margin-top: 0;
+        }
+        .sidebar ul, .news ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li, .news ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a, .news ul li a {
+            text-decoration: none;
+            color: #851ecf;
+        }
+        .container {
+            flex: 1;
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .post {
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 5px solid #851ecf;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Prima</h1>
+        <div class="auth-buttons">
+            <button>Регистрация</button>
+            <button>Войти</button>
+        </div>
+    </header>
+    
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Категории</h3>
+            <ul>
+                <li><a href="#">Музыкальное оборудование</a></li>
+                <li><a href="#">Программное обеспечение</a></li>
+                <li><a href="#">Обмен треками</a></li>
+                <li><a href="#">События</a></li>
+                <li><a href="#">Общие темы</a></li>
+            </ul>
+        </aside>
+
+        <div class="container">
+            <div id="postsContainer"></div>
+            <div id="errorMessage" class="error"></div>
+        </div>
+
+        <aside class="news">
+            <h3>Новости</h3>
+            <ul>
+                <li><a href="#">Обновление форума до версии 2.0</a></li>
+                <li><a href="#">Новые функции для музыкантов</a></li>
+                <li><a href="#">Конкурс на лучший трек месяца</a></li>
+                <li><a href="#">Вебинар по звукозаписи</a></li>
+                <li><a href="#">Скидки на аудиооборудование</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SoundSpot Forum. Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const postsContainer = document.getElementById('postsContainer');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Функция для получения постов с сервера
+            async function fetchPosts() {
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/posts'); // Замените на ваш URL
+                    if (!response.ok) {
+                        throw new Error('Ошибка сети');
+                    }
+                    const posts = await response.json();
+                    displayPosts(posts);
+                } catch (error) {
+                    console.error('Ошибка при получении данных:', error);
+                    errorMessage.textContent = 'Не удалось загрузить посты. Попробуйте позже.';
+                }
+            }
+
+            // Функция для отображения постов на странице
+            function displayPosts(posts) {
+                postsContainer.innerHTML = ''; // Очистка предыдущих постов
+                if (posts.length === 0) {
+                    postsContainer.textContent = 'Нет доступных постов.';
+                    return;
+                }
+                for (const post of posts) {
+                    const postDiv = document.createElement('div');
+                    postDiv.className = 'post';
+                    postDiv.textContent = Object.values(post)[0]; // Отображение первого значения объекта поста
+                    postsContainer.appendChild(postDiv);
+                }
+            }
+
+            // Получение и отображение постов при загрузке страницы
+            fetchPosts();
+        });
+    </script>
+</body>
+</html>
