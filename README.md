@@ -4,7 +4,7 @@
 
 ## 🚀 Featured Works
 
-### 1. **Rain Simulator**  
+### 1. **Rain app**  
 [![PyQt6](https://img.shields.io/badge/PyQt6-6.4-green?logo=qt)](https://www.riverbankcomputing.com/software/pyqt/)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)](https://python.org)
 
@@ -15,7 +15,7 @@ text
 ✅ Customizable precipitation styles  
 
 ---
-### 2. **MusicCollab**  
+### 2. **SounSpot**  
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.95-009688?logo=fastapi)](https://fastapi.tiangolo.com)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql)](https://postgresql.org)
 
