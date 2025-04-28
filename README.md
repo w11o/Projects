@@ -15,7 +15,7 @@ text
 ✅ Customizable precipitation styles  
 
 ---
-### 2. **SounSpot(Prima)**  
+### 2. **SounSpot (Prima)**  
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.95-009688?logo=fastapi)](https://fastapi.tiangolo.com)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql)](https://postgresql.org)
 [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-396e9c?logo=sqlalchemy)](https://www.sqlalchemy.org)
