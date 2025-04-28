@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="styles_reg.css"/>
+</head>
+<body>
+
+<h1 class="editor-note">Регистрация на SoundSpot</h1>
+
+<form action="" method="get">
+            <input placeholder="Введите логин" type="search" class ="login" style = "font-size: 20px; width: 50%">
+            <input placeholder="Введите пароль" type="search" class ="password" style = "font-size: 20px; width: 50%">
+
+            <button type="button" class ="button" style="font-size: 20px; width: 50%">Зарегистрироваться</button>
+
+</form>
+
+<script>
+    const loginInput = document.querySelector('.login');
+    const passwordInput = document.querySelector('.password');
+    const button = document.querySelector('.button');
+
+    button.addEventListener('click', () => {
+        const login = loginInput.value;
+        const password = passwordInput.value;
+    // Здесь вы можете использовать значения login и password
+});
+</script>
+
+<p><a href="main_page.html">Назад</a></p>
+</body>
+</html>
