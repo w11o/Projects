@@ -30,7 +30,7 @@
 
 **Modern content management system**  
 **Key Features**:    
-✅ **Admin Dashboard**
-✅ **Responsive Design**
+✅ Admin Dashboard
+✅ Responsive Design
 
 
