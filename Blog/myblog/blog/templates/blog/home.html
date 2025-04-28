@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Блог</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .post {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .post h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .post p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .post small {
+            color: #999;
+        }
+        footer {
+            text-align: center;
+            color: #777;
+            margin: 40px 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Добро пожаловать в мой блог!</h1>
+    <p>Читайте последние посты ниже</p>
+</header>
+
+<div class="container">
+    {% for post in posts %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content|linebreaks }}</p>
+            <small>Опубликовано: {{ post.created_at|date:"d.m.Y H:i" }}</small>
+        </div>
+    {% empty %}
+        <p>Пока нет постов. Зайдите позже!</p>
+    {% endfor %}
+</div>
+
+<footer>
+    © 2025 Мой Блог
+</footer>
+
+</body>
+</html>
+
