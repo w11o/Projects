@@ -29,7 +29,7 @@
 [![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite)](https://sqlite.org)
 
 **Modern content management system**  
-## 🔥 Core Features  
+**Key Features**:    
 ✅ **Admin Dashboard**
 ✅ **Responsive Design**
 
