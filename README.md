@@ -22,7 +22,7 @@
 
 **Musician collaboration hub** 
 
-### 3. ** Blog**
+### 3. **Blog**
 
 [![Django](https://img.shields.io/badge/Django-4.x-092E20?logo=django)](https://www.djangoproject.com)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org)
