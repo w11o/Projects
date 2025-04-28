@@ -9,7 +9,6 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)](https://python.org)
 
 **Immersive weather simulation tool**  
-text
 **Key Features**:  
 ✅ Physics-based droplet mechanics  
 ✅ Customizable precipitation styles  
@@ -22,3 +21,16 @@ text
 
 
 **Musician collaboration hub** 
+
+### 3. ** Blog**
+
+[![Django](https://img.shields.io/badge/Django-4.x-092E20?logo=django)](https://www.djangoproject.com)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org)
+[![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite)](https://sqlite.org)
+
+**Modern content management system**  
+## 🔥 Core Features  
+✅ **Admin Dashboard**
+✅ **Responsive Design**
+
+
