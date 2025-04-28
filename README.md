@@ -13,8 +13,6 @@ text
 **Key Features**:  
 ✅ Physics-based droplet mechanics  
 ✅ Customizable precipitation styles  
-✅ GIF/MP4 export module  
-✅ Low-resource mode for legacy hardware
 
 ---
 ### 2. **MusicCollab**  
