@@ -13,7 +13,7 @@ from typing import Union, Dict, Any
 
 API_TOKEN = ''
 
-# Инициализация бота и диспетчера
+
 bot = Bot(token=API_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
@@ -39,16 +39,16 @@ def draw_hexagram(hexagram):
     hexagram_lines = []
     for line in hexagram:
         if line == 1:
-            hexagram_lines.append("——")  # Целая линия
+            hexagram_lines.append("——")  
         else:
-            hexagram_lines.append("— —")  # Прерванная линия
+            hexagram_lines.append("— —")  
     
-    # Формируем итоговую гексаграмму с нужным форматированием
+
     return "\n".join(hexagram_lines)
 hexagram = [1, 0, 1, 1, 0, 1]
 hexagram_drawn = draw_hexagram(hexagram)
 
-# Команда старт
+
 @dp.message(CommandStart())
 async def send_welcome(message: Message):
         await message.reply(
@@ -68,8 +68,8 @@ async def send_welcome(message: Message):
     )
         await bot.send_photo(
         message.chat.id,
-        "https://anashina.com/wp-content/uploads/2019/03/Zhou-yi.jpg",  # Замените на актуальную ссылку
-        caption="Канон Перемен (И-цзин)"  # Подпись к изображению
+        "https://anashina.com/wp-content/uploads/2019/03/Zhou-yi.jpg",
+        caption="Канон Перемен (И-цзин)"  
     )
 
         await message.answer(
@@ -78,13 +78,13 @@ async def send_welcome(message: Message):
             )
     
 
-# Команда подбросить монетку
+
 @dp.message(Command(commands=["flip"]))
 async def flip_coin(message: Message):
-    # Рандомный выбор орел или решка
+
     result = random.choice(['Орел', 'Решка'])
     
-    # Отправляем результат с использованием HTML
+
     await message.reply(
         f"<b>Результат подбрасывания монетки:</b>\n\n<b>{result}</b>",
 
