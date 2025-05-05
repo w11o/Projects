@@ -145,10 +145,9 @@
             const postsContainer = document.getElementById('postsContainer');
             const errorMessage = document.getElementById('errorMessage');
 
-            // Функция для получения постов с сервера
             async function fetchPosts() {
                 try {
-                    const response = await fetch('http://127.0.0.1:8000/posts'); // Замените на ваш URL
+                    const response = await fetch('http://127.0.0.1:8000/posts'); 
                     if (!response.ok) {
                         throw new Error('Ошибка сети');
                     }
@@ -160,9 +159,8 @@
                 }
             }
 
-            // Функция для отображения постов на странице
             function displayPosts(posts) {
-                postsContainer.innerHTML = ''; // Очистка предыдущих постов
+                postsContainer.innerHTML = ''; 
                 if (posts.length === 0) {
                     postsContainer.textContent = 'Нет доступных постов.';
                     return;
@@ -170,12 +168,11 @@
                 for (const post of posts) {
                     const postDiv = document.createElement('div');
                     postDiv.className = 'post';
-                    postDiv.textContent = Object.values(post)[0]; // Отображение первого значения объекта поста
+                    postDiv.textContent = Object.values(post)[0];
                     postsContainer.appendChild(postDiv);
                 }
             }
 
-            // Получение и отображение постов при загрузке страницы
             fetchPosts();
         });
     </script>
